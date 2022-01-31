@@ -1,0 +1,19 @@
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 120px;
+  width: 100%;
+  background-color: #4056A1;
+  color: #FFFFFF;
+  padding: 1.5em;
+}
+
+nav span {
+  font-family: 'Bungee', cursive;
+}
+
+.post-icon {
+  text-align: center;
+  color: red;
+}
