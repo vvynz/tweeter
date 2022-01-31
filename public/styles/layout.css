@@ -22,6 +22,15 @@ body {
   background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
 }
 
+main {
+  margin: auto;
+  width: 90%;
+  background-color:#f1d6ff;
+  text-align: center;
+}
+
+
+
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
