@@ -37,12 +37,13 @@ button {
   padding: 5px 10px
 }
 
-.tweet-footer {
+.new-tweet-footer {
   font-family: 'Bungee', cursive;
   display: flex;
   justify-content: space-between;
   padding-top: 15px;
 }
-.counter {
+
+#counter {
   color: #555149;
 }
