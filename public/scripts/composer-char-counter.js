@@ -5,17 +5,15 @@ $(document).ready(function() {
     // console.log("Length:", tweetLength);
     const remainingChar = 140;
     const outputChar = remainingChar - tweetLength;
-    console.log(outputChar);
 
-    // const counter = $(this).parent("tweet-box").siblings("tweet-footer").children("#counter");
-    // $(counter).addClass("counter");
+    const counter = $(this).closest('.tweet-form').find('.counter');
+    counter.text(outputChar);
     
-    $("#counter").text(outputChar);
     if(outputChar < 0) {
-      $("#counter").css({ color: "red" });
+      counter.addClass("red");
     } 
     if (outputChar > 0) {
-      $("#counter").css({ color: "#555149" });
+      counter.removeClass("red");
     }
   })
 });
