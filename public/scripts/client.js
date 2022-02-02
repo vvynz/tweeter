@@ -3,30 +3,35 @@
 //  * jQuery is already loaded
 //  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
 //  */
-
-$(document).ready(function() {
-  const $tweet = createTweetElement(tweetData);
-  $('#tweet-container').prepend($tweet); //should add to the page so that we can see the temporary data displayed
-});
-
-// (Test driver code) temporary tweets object
-
-const tweetData = {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
+const tweetData = [
+    {
+      "user": {
+        "name": "Newton",
+        "avatars": "https://i.imgur.com/73hZDYK.png"
+        ,
         "handle": "@SirIsaac"
       },
-    "content": {
+      "content": {
         "text": "If I have seen further it is by standing on the shoulders of giants"
       },
-    "created_at": 1461116232227
- };
+      "created_at": 1461116232227
+    },
+    {
+      "user": {
+        "name": "Descartes",
+        "avatars": "https://i.imgur.com/nlhLi3I.png",
+        "handle": "@rd" },
+      "content": {
+        "text": "Je pense , donc je suis"
+      },
+      "created_at": 1461113959088
+    }
+  ];
 
-const createTweetElement = function(tweetObj) {
-  // console.log("DO I WORK?!");
-  // console.log(tweetObj.user);
-  
+
+$(document).ready(function() {
+  const createTweetElement = function(tweetObj) {
+    // creating the tweet element
   const element = `
   <article>
     <header class="tweet-header">
@@ -46,8 +51,20 @@ const createTweetElement = function(tweetObj) {
     </span>
     </footer>
   </article>`;
-  
-  return element;
+
+  // adding/prepending the new tweet element to the tweet-container
+  $('#tweet-container').prepend(element); //should add to the page so that we can see the temporary data displayed
 };
+
+// loops through the tweets database
+const renderTweets = function(tweetsArr) {
+  for (let tweet of tweetsArr) {
+    // calls the createTweetElement function
+    createTweetElement(tweet);
+  }
+}
+// returns the value and prepends it to the tweet-container
+  renderTweets(tweetData);
+});
 
 
