@@ -6,7 +6,7 @@
 
 $(document).ready(function() {
   const $tweet = createTweetElement(tweetData);
-  $('#tweet-container').prepend($tweet);
+  $('#tweet-container').prepend($tweet); //should add to the page so that we can see the temporary data displayed
 });
 
 // (Test driver code) temporary tweets object
@@ -38,7 +38,7 @@ const createTweetElement = function(tweetObj) {
     </header>
     <label for="previous-tweetsObj">${tweetObj.content.text}</label>
     <footer class="tweet-footer">
-    <span>${tweetObj.created_at}</span>
+    <span>${timeago.format(tweetObj.created_at)}</span>
     <span class="icons">
       <i class="fas fa-flag footer-icons"></i>
       <i class="fas fa-retweet footer-icons"></i>
@@ -46,10 +46,8 @@ const createTweetElement = function(tweetObj) {
     </span>
     </footer>
   </article>`;
-  // $('.tweet-container').append(tweetLayout);
+  
   return element;
 };
 
-// console.log("testing", $tweet);
-// $('#tweet-container').append(`<h1>hello!</h1>`); //should add to the page so that we can see the temporary data displayed
 
