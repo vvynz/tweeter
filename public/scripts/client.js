@@ -2,7 +2,9 @@
 //  * Client-side JS logic goes here
 //  * jQuery is already loaded
 //  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
+// const { json } = require("body-parser");
 //  */
+
 const tweetData = [
     {
       "user": {
@@ -30,6 +32,18 @@ const tweetData = [
 
 
 $(document).ready(function() {
+
+  // makes a request using jquery to /tweets and receives the array of tweets
+  const loadTweets = function() {
+  $.ajax('/tweets', { method: 'GET', format: 'json' }).then(function(tweetsArr) {
+    // the callback function will call renderTweets function and pass it the response from the ajax response
+    console.log("success??", tweetsArr);
+    renderTweets(tweetsArr);
+  });
+};
+
+loadTweets();
+
   const createTweetElement = function(tweetObj) {
     // creating the tweet element
   const element = `
@@ -62,7 +76,7 @@ const renderTweets = function(tweetsArr) {
     // calls the createTweetElement function
     createTweetElement(tweet);
   }
-}
+};
 // returns the value and prepends it to the tweet-container
 renderTweets(tweetData);
 
@@ -75,9 +89,14 @@ $('.tweet-form').on('submit', (event) => {
   const param = $('.tweet-form').serialize();
   
   // submit a POST request that sends the serialized data to the server
-  $.post("/tweets", param);
+  $.post('/tweets', param);
   //the request returns an xhr request in devTools
-})
 });
 
+});
 
+// $.get("/tweets").then((tweetsArrData) => {
+//     console.log("success??");
+//     console.log(tweetsArrData);
+//     renderTweets(tweetsArrData);
+//   });
