@@ -64,7 +64,20 @@ const renderTweets = function(tweetsArr) {
   }
 }
 // returns the value and prepends it to the tweet-container
-  renderTweets(tweetData);
+renderTweets(tweetData);
+
+
+  // event listener for submit from the form
+$('.tweet-form').on('submit', (event) => {
+  event.preventDefault(); //prevents the default submission behaviour
+
+  // serialize the form data into a jquery string
+  const param = $('.tweet-form').serialize();
+  
+  // submit a POST request that sends the serialized data to the server
+  $.post("/tweets", param);
+  //the request returns an xhr request in devTools
+})
 });
 
 
