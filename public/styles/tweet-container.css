@@ -9,11 +9,12 @@ article:hover {
   height: 75px;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
-.tweet-header .user-handler {
+/* .tweet-header .user-handler {
   justify-content: flex-end;
-}
+} */
 
 .tweet-footer {
   display: flex;
@@ -25,10 +26,10 @@ article:hover {
 }
 
 .icons i {
-  color: #4056A1;the user
+  color: #4056A1;
   padding: 0 10px;
 }
 
-i:hover {
+.footer-icons:hover {
   color: #DF9A3E;
 }
