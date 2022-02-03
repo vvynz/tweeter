@@ -31,21 +31,22 @@
 //   ];
 
 
-$(document).ready(function() {
-
+$(document).ready(function () {
   // makes a request using jquery to /tweets and receives the array of tweets
-  const loadTweets = function() {
-  $.ajax('/tweets', { method: 'GET', format: 'json' }).then(function(tweetsArr) {
-    // the callback function will call renderTweets function and pass it the response from the ajax response
-    renderTweets(tweetsArr);
-  });
-};
+  const loadTweets = function () {
+    $('#tweet-container').empty();
+    $.ajax('/tweets', { method: 'GET', format: 'json' }).then(function (tweetsArr) {
+      // the callback function will call renderTweets function and pass it the response from the ajax response
+      renderTweets(tweetsArr);
+    });
+  };
 
-loadTweets();
+  loadTweets();
 
-  const createTweetElement = function(tweetObj) {
+
+  const createTweetElement = function (tweetObj) {
     // creating the tweet element
-  const element = `
+    const element = `
   <article>
     <header class="tweet-header">
       <div>
@@ -65,43 +66,49 @@ loadTweets();
     </footer>
   </article>`;
 
-  // adding/prepending the new tweet element to the tweet-container
-  $('#tweet-container').prepend(element); //should add to the page so that we can see the temporary data displayed
-};
+    // adding/prepending the new tweet element to the tweet-container
+    $('#tweet-container').prepend(element); //should add to the page so that we can see the temporary data displayed
 
-// loops through the tweets database
-const renderTweets = function(tweetsArray) {
+  };
 
-  for (let tweet of tweetsArray) {
-    // returns the value and calls the createTweetElement function to prepend it to the tweet-container
-    createTweetElement(tweet);
-  }
-};
+  // loops through the tweets database
+  const renderTweets = function (tweetsArray) {
 
+    for (let tweet of tweetsArray) {
+      // returns the value and calls the createTweetElement function to prepend it to the tweet-container
+      createTweetElement(tweet);
+    }
+  };
+
+  console.log("HELLO");
   // event listener for submit from the form
-$('.tweet-form').on('submit', (event) => {
-  event.preventDefault(); //prevents the default submission behaviour
+  $('.tweet-form').on('submit', function (event) {
+    event.preventDefault(); //prevents the default submission behaviour
 
-  const inputLength = $('form').find('textarea').val().length;
-  console.log(inputLength);
-  if(inputLength > 140) {
+    const inputLength = $("form").find("textarea").val().length;
+    // console.log(inputLength);
 
-    //user should receive an error pop-up when their submission is empty (or null)
-    alert("Character amount have exceeded the max!");
-  } else if (inputLength < 0) {
+    if (inputLength > 140) {
+      //user should receive an error pop-up when their submission is empty (or null)
+      alert("Character amount have exceeded the max!");
+    } else if (inputLength <= 0) {
+      // should receive an error alert when length of tweet is too long
+      alert("Your tweet cannot be empty!");
+    } else {
+      console.log("success!");
+      // serialize the form data into a jquery string
+      const param = $(this).serialize();
 
-    // should receive an error alert when length of tweet is too long
-    alert("Your tweet cannot be empty!");
-  } else {
-   // serialize the form data into a jquery string
-  const param = $(this).serialize();
+      // submit a POST request that sends the serialized data to the server
+      $.ajax({
+        url: '/tweets', method: 'POST', data: param, success: function () {
+          loadTweets();
+        }
+      });
 
-  // submit a POST request that sends the serialized data to the server
-  $.post('/tweets', param).then(() => {
+    }
+
+
   });
-  //the request returns an xhr request in devTools
-  }
-
-});
 
 });
