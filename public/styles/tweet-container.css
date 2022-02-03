@@ -2,9 +2,10 @@ article {
   border: 3px solid #555149;
   padding: 10px;
   width: 100%;
+  margin: 10px 10px;
 }
 article:hover {
-  box-shadow: 7px 5px rgb(64, 86, 161, 0.5);
+  box-shadow: 5px 7px rgb(64, 86, 161, 0.5);
 }
 .tweet-header {
   height: 75px;
@@ -27,10 +28,10 @@ article:hover {
 }
 
 .icons i {
-  color: #4056A1;
+  color: #4056a1;
   padding: 0 10px;
 }
 
 .footer-icons:hover {
-  color: #DF9A3E;
+  color: #df9a3e;
 }
