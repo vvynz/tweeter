@@ -4,6 +4,22 @@ section {
   justify-content: center;
   align-items: center;
   padding: 20px;
+  background: url("/images/cubes.png");
+}
+
+.error-msg {
+  display: none;
+  font-size: 18px;
+  font-weight: 600;
+  color: red;
+}
+
+.error-msg::before,
+.error-msg::after {
+  font-family: FontAwesome;
+  content: "\f071";
+  color: red;
+  padding: 0 10px;
 }
 
 .tweet-box {
@@ -30,20 +46,20 @@ textarea {
 }
 
 button {
-  background-color: #4056A1;
-  border-color: #4056A1;
+  background-color: #4056a1;
+  border-color: #4056a1;
   box-shadow: none;
-  color: #FFFFFF;
-  padding: 5px 10px
+  color: #ffffff;
+  padding: 5px 10px;
 }
 
 .new-tweet-footer {
-  font-family: 'Bungee', cursive;
+  font-family: "Bungee", cursive;
   display: flex;
   justify-content: space-between;
   padding-top: 15px;
 }
 
-#counter {
-  color: #555149;
+.red {
+  color: red;
 }
