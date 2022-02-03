@@ -5,30 +5,30 @@
 // const { json } = require("body-parser");
 //  */
 
-const tweetData = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    }
-  ];
+// const tweetData = [
+//     {
+//       "user": {
+//         "name": "Newton",
+//         "avatars": "https://i.imgur.com/73hZDYK.png"
+//         ,
+//         "handle": "@SirIsaac"
+//       },
+//       "content": {
+//         "text": "If I have seen further it is by standing on the shoulders of giants"
+//       },
+//       "created_at": 1461116232227
+//     },
+//     {
+//       "user": {
+//         "name": "Descartes",
+//         "avatars": "https://i.imgur.com/nlhLi3I.png",
+//         "handle": "@rd" },
+//       "content": {
+//         "text": "Je pense , donc je suis"
+//       },
+//       "created_at": 1461113959088
+//     }
+//   ];
 
 
 $(document).ready(function() {
@@ -71,15 +71,13 @@ loadTweets();
 };
 
 // loops through the tweets database
-const renderTweets = function(tweetsArr) {
-  for (let tweet of tweetsArr) {
-    // calls the createTweetElement function
+const renderTweets = function(tweetsArray) {
+
+  for (let tweet of tweetsArray) {
+    // returns the value and calls the createTweetElement function to prepend it to the tweet-container
     createTweetElement(tweet);
   }
 };
-// returns the value and prepends it to the tweet-container
-renderTweets(tweetData);
-
 
   // event listener for submit from the form
 $('.tweet-form').on('submit', (event) => {
@@ -94,9 +92,3 @@ $('.tweet-form').on('submit', (event) => {
 });
 
 });
-
-// $.get("/tweets").then((tweetsArrData) => {
-//     console.log("success??");
-//     console.log(tweetsArrData);
-//     renderTweets(tweetsArrData);
-//   });
