@@ -1,10 +1,10 @@
-section {
+.new-tweet-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background: url("/images/cubes.png");
+  /* background: url("/images/cubes.png"); */
 }
 
 .error-msg {
@@ -40,7 +40,7 @@ textarea {
   border-color: transparent;
   outline: none;
   resize: none;
-  overflow: auto;
+  overflow: hidden;
   height: 30px;
   width: 500px;
 }
@@ -62,4 +62,20 @@ button {
 
 .red {
   color: red;
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 768px) {
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 1024px) {
+  section {
+    width: 66.7%;
+    float: right;
+  }
+
+  .new-tweet-container {
+    margin-top: 80px;
+  }
 }
