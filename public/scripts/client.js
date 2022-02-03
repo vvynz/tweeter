@@ -45,19 +45,26 @@ $(document).ready(function () {
 
 
   const createTweetElement = function (tweetObj) {
+
+    const escape = function (str) {
+      let div = document.createElement("div");
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    }
+
     // creating the tweet element
     const element = `
   <article>
     <header class="tweet-header">
       <div>
-        <img src="${tweetObj.user.avatars}" alt="id-photo" />
-        <span class="display-name">${tweetObj.user.name}</span>
+        <img src="${escape(tweetObj.user.avatars)}" alt="id-photo" />
+        <span class="display-name">${escape(tweetObj.user.name)}</span>
       </div>
-        <span class="user-handler">${tweetObj.user.handle}</span>
+        <span class="user-handler">${escape(tweetObj.user.handle)}</span>
     </header>
-    <label for="previous-tweetsObj">${tweetObj.content.text}</label>
+    <label for="previous-tweetsObj">${escape(tweetObj.content.text)}</label>
     <footer class="tweet-footer">
-    <span>${timeago.format(tweetObj.created_at)}</span>
+    <span>${timeago.format(escape(tweetObj.created_at))}</span>
     <span class="icons">
       <i class="fas fa-flag footer-icons"></i>
       <i class="fas fa-retweet footer-icons"></i>
@@ -68,7 +75,6 @@ $(document).ready(function () {
 
     // adding/prepending the new tweet element to the tweet-container
     $('#tweet-container').prepend(element); //should add to the page so that we can see the temporary data displayed
-
   };
 
   // loops through the tweets database
@@ -80,7 +86,7 @@ $(document).ready(function () {
     }
   };
 
-  console.log("HELLO");
+
   // event listener for submit from the form
   $('.tweet-form').on('submit', function (event) {
     event.preventDefault(); //prevents the default submission behaviour
@@ -95,7 +101,7 @@ $(document).ready(function () {
       // should receive an error alert when length of tweet is too long
       alert("Your tweet cannot be empty!");
     } else {
-      console.log("success!");
+
       // serialize the form data into a jquery string
       const param = $(this).serialize();
 
@@ -110,5 +116,7 @@ $(document).ready(function () {
 
 
   });
+
+
 
 });
