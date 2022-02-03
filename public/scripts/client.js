@@ -94,18 +94,21 @@ $(document).ready(function () {
     const inputLength = $("form").find("textarea").val().length;
     // console.log(inputLength);
 
+    //error message will be display
+    $('.error-msg').hide().slideDown(400).text('');
     if (inputLength > 140) {
-      //user should receive an error pop-up when their submission is empty (or null)
-      alert("Character amount have exceeded the max!");
-    } else if (inputLength <= 0) {
-      // should receive an error alert when length of tweet is too long
-      alert("Your tweet cannot be empty!");
-    } else {
 
+      // should receive an error alert when length of tweet is too long
+      $('.error-msg').slideDown(400).text('Character count has exceeded the max!');
+
+    } else if (inputLength === '' || inputLength === null || inputLength <= 0) {
+      //user should receive an error pop-up when their submission is empty string, null, or when the length is less than and equal to 0)
+      $('.error-msg').slideDown(400).text('Your tweet cannot be empty!');
+    } else {
       // serialize the form data into a jquery string
       const param = $(this).serialize();
 
-      // submit a POST request that sends the serialized data to the server
+      // a POST request is received whenever a user submits a new tweet and it's passed to the loadTweets function and is shown on the page without having to refresh
       $.ajax({
         url: '/tweets', method: 'POST', data: param, success: function () {
           loadTweets();
