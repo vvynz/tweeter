@@ -6,7 +6,9 @@
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -17,20 +19,16 @@ html {
 body {
   color: #545149;
   font-size: 24px;
-  font-family: 'Source Sans Pro', sans-serif;
-  background-color:#f1d6ff;
-  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+  font-family: "Source Sans Pro", sans-serif;
+  background-color: #f1d6ff;
+  background-image: url("/images/cubes.png");
 }
 
 main {
-  margin: auto;
+  margin: 20px auto;
   width: 90%;
-  background-color:#f1d6ff;
   text-align: center;
 }
-
-
-
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
