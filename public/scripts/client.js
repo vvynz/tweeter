@@ -37,7 +37,6 @@ $(document).ready(function() {
   const loadTweets = function() {
   $.ajax('/tweets', { method: 'GET', format: 'json' }).then(function(tweetsArr) {
     // the callback function will call renderTweets function and pass it the response from the ajax response
-    console.log("success??", tweetsArr);
     renderTweets(tweetsArr);
   });
 };
@@ -83,12 +82,26 @@ const renderTweets = function(tweetsArray) {
 $('.tweet-form').on('submit', (event) => {
   event.preventDefault(); //prevents the default submission behaviour
 
-  // serialize the form data into a jquery string
-  const param = $('.tweet-form').serialize();
-  
+  const inputLength = $('form').find('textarea').val().length;
+  console.log(inputLength);
+  if(inputLength > 140) {
+
+    //user should receive an error pop-up when their submission is empty (or null)
+    alert("Character amount have exceeded the max!");
+  } else if (inputLength < 0) {
+
+    // should receive an error alert when length of tweet is too long
+    alert("Your tweet cannot be empty!");
+  } else {
+   // serialize the form data into a jquery string
+  const param = $(this).serialize();
+
   // submit a POST request that sends the serialized data to the server
-  $.post('/tweets', param);
+  $.post('/tweets', param).then(() => {
+  });
   //the request returns an xhr request in devTools
+  }
+
 });
 
 });
