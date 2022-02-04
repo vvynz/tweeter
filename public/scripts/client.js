@@ -2,7 +2,6 @@
 //  * Client-side JS logic goes here
 //  * jQuery is already loaded
 //  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
-// const { json } = require("body-parser");
 //  */
 
 // const tweetData = [
@@ -30,11 +29,10 @@
 //     }
 //   ];
 
-
 $(document).ready(function () {
   // makes a request using jquery to /tweets and receives the array of tweets
   const loadTweets = function () {
-    $('tweet-container').empty();
+    $('#tweet-container').empty();
     $.ajax('/tweets', { method: 'GET', format: 'json' }).then(function (tweetsArr) {
       // the callback function will call renderTweets function and pass it the response from the ajax response
       renderTweets(tweetsArr);
@@ -43,14 +41,14 @@ $(document).ready(function () {
 
   loadTweets();
 
-  // an escape function that encodes any unsafe script input into "safe" text
-  const escape = function (str) {
-    let div = document.createElement("div");
-    div.appendChild(document.createTextNode(str));
-    return div.innerHTML;
-  }
-
   const createTweetElement = function (tweetObj) {
+
+    // an escape function that encodes any unsafe script input into "safe" text
+    const escape = function (str) {
+      let div = document.createElement("div");
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    }
 
     // creating the html layout for the tweet element
     const element = `
@@ -79,7 +77,6 @@ $(document).ready(function () {
 
   // loops through the tweets database
   const renderTweets = function (tweetsArray) {
-
     for (let tweet of tweetsArray) {
       // returns the value and calls the createTweetElement function to prepend it to the tweet-container
       createTweetElement(tweet);
@@ -92,7 +89,6 @@ $(document).ready(function () {
     event.preventDefault(); //prevents the default submission behaviour
 
     const inputLength = $("form").find("textarea").val().length;
-    // console.log(inputLength);
 
     //error message will be hidden when loaded on the main page
     $('.error-msg').slideUp().text('');
@@ -111,16 +107,15 @@ $(document).ready(function () {
       // a POST request is received whenever a user submits a new tweet and it's passed to the loadTweets function and is shown on the page without having to refresh
       $.ajax({
         url: '/tweets', method: 'POST', data: param, success: function () {
-          $("form").find("textarea").val("");
           loadTweets();
         }
       });
 
+      $("form").find("textarea").val('');
     }
 
 
   });
-
 
 
 });
