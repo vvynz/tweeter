@@ -1,12 +1,18 @@
-article {
+.tweets-display {
   border: 3px solid #555149;
   padding: 10px;
   width: 100%;
   margin: 10px 10px;
+  word-break: break-word;
 }
 article:hover {
   box-shadow: 5px 7px rgb(64, 86, 161, 0.5);
 }
+
+.previous-tweetsObj {
+  /* word-break: break-word; */
+}
+
 .tweet-header {
   height: 75px;
   display: flex;

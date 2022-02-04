@@ -52,7 +52,7 @@ $(document).ready(function () {
 
     // creating the html layout for the tweet element
     const element = `
-    <article>
+    <article class="tweets-display">
       <header class="tweet-header">
         <div>
           <img src="${escape(tweetObj.user.avatars)}" alt="id-photo" />
@@ -107,11 +107,12 @@ $(document).ready(function () {
       // a POST request is received whenever a user submits a new tweet and it's passed to the loadTweets function and is shown on the page without having to refresh
       $.ajax({
         url: '/tweets', method: 'POST', data: param, success: function () {
+          $("form").find("textarea").val('');
           loadTweets();
         }
       });
 
-      $("form").find("textarea").val('');
+
     }
 
 
