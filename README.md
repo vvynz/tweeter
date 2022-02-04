@@ -3,6 +3,9 @@
 Tweeter is a simple, single-page AJAX-based Twitter clone.
 This is a project utilizing my CSS, JS, jQuery and AJAX front-end skills.
 
+## Previews
+
+
 ## Getting Started
 
 1. Install dependencies using the `npm install` command.
