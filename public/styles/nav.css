@@ -4,7 +4,7 @@ nav {
   justify-content: space-between;
   height: 120px;
   width: 100%;
-  background-color: #4056a1;
+  background-color: #f1d6ff;
   color: #ffffff;
   padding: 1.5em;
   position: fixed;
@@ -21,8 +21,12 @@ nav span {
   color: red;
 }
 
+@media only screen and (min-width: 768px) {
+}
+
 @media only screen and (min-width: 1024px) {
   nav {
+    background-color: #4056a1;
     height: 80px;
     padding: 1em;
   }
