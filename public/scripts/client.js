@@ -95,7 +95,7 @@ $(document).ready(function () {
     // console.log(inputLength);
 
     //error message will be display
-    $('.error-msg').hide().slideDown(400).text('');
+    $('.error-msg').slideUp().text('');
     if (inputLength > 140) {
 
       // should receive an error alert when length of tweet is too long
@@ -114,6 +114,8 @@ $(document).ready(function () {
           loadTweets();
         }
       });
+
+      $("form").find("textarea").val("");
 
     }
 
