@@ -16,14 +16,20 @@
   margin-top: 20px;
 }
 
-/* Tablet Styles */
-@media only screen and (min-width: 768px) {
-}
-
 /* Desktop Styles */
 @media only screen and (min-width: 1024px) {
   .profile-header {
-    width: 33.3%;
+    width: 60vmin;
+    height: 60vmin;
     float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+  }
+
+  .profile-img img {
+    max-width: 150px;
+    max-height: 150px;
   }
 }
