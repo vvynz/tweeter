@@ -1,9 +1,14 @@
-section {
+.new-tweet-container,
+#tweet-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px;
+}
+
+#tweet-container {
+  margin-right: 40px;
 }
 
 .error-msg {
