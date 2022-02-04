@@ -19,17 +19,18 @@
 /* Desktop Styles */
 @media only screen and (min-width: 1024px) {
   .profile-header {
-    width: 60vmin;
-    height: 60vmin;
+    width: 50vmin;
+    height: 50vmin;
     float: left;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 30px;
+    margin-left: 20px;
   }
 
   .profile-img img {
-    max-width: 150px;
-    max-height: 150px;
+    max-width: 200px;
+    max-height: 200px;
+    margin-top: 10px;
   }
 }
