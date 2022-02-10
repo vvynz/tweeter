@@ -6,7 +6,7 @@ $(document).ready(function() {
     const remainingChar = 140;
     const outputChar = remainingChar - tweetLength;
 
-    const counter = $(this).closest('.tweet-form').find('.counter');
+    const counter = $(this).closest(".tweet-form").find(".counter");
     counter.text(outputChar);
 
     if (outputChar < 0) {
@@ -15,5 +15,5 @@ $(document).ready(function() {
     if (outputChar >= 0) {
       counter.removeClass("red");
     }
-  })
+  });
 });
