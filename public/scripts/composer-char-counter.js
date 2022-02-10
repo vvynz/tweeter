@@ -8,11 +8,11 @@ $(document).ready(function() {
 
     const counter = $(this).closest('.tweet-form').find('.counter');
     counter.text(outputChar);
-    
-    if(outputChar < 0) {
+
+    if (outputChar < 0) {
       counter.addClass("red");
-    } 
-    if (outputChar > 0) {
+    }
+    if (outputChar >= 0) {
       counter.removeClass("red");
     }
   })
