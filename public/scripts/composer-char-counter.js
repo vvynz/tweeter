@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $("#tweet-text").on("keyup", function(event) {
+  $("#tweet-text").on("input", function(event) {
     // gets the length of input from the textarea
     const tweetLength = $(this).val().length;
     // console.log("Length:", tweetLength);
